@@ -1,0 +1,70 @@
+
+//BUILD AND RUN WITH gradle build && java -jar build/libs/customerAPIGradle-0.0.1-SNAPSHOT.jar
+
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.webage.spring.samples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.hsqldb:hsqldb:2.3.4'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+
+/*buildscript {
+
+    dependencies {
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+    }
+}
+
+plugins {
+  id "com.palantir.docker" version "0.22.1"
+}
+
+//apply plugin: 'com.palantir.docker'
+
+group = 'com.webage.spring.samples'
+
+bootJar {
+    baseName = 'customerAPIGradle'
+    version =  '0.0.1-SNAPSHOT'
+}
+
+task unpack(type: Copy) {
+    dependsOn bootJar
+    from(zipTree(tasks.bootJar.outputs.files.singleFile))
+    into("build/dependency")
+}
+docker {
+    name "${project.group}/${bootJar.baseName}"
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.hsqldb:hsqldb:2.3.4'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}*/
+
